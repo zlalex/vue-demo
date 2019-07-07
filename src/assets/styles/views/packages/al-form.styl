@@ -1,0 +1,53 @@
+@import 'variable'
+
+.al-input{
+    &.al-input__large{
+        .al-input__inner{
+            height: 40px;
+            line-height: 38px;
+        }
+    }
+    
+    .al-input__inner{
+        width: 100%;
+        height: 30px;
+        padding-left: 1em;
+        line-height: 28px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $e5;
+        outline: none;
+    }
+}
+
+.al-button{
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    color: $gf;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 2px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    &.al-btn__full{
+        width: 100%;
+        height: 40px;
+    }
+    &.al-btn__default{
+        background-color: $default-blue;
+        &:hover{    
+          background-color: $default-blue-hover; 
+        }
+        &:active{
+          background-color: $default-blue-active; 
+        }
+    }
+}

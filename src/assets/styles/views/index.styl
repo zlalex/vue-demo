@@ -1,0 +1,40 @@
+@import 'packages/variable';
+
+.mes-logo{
+    width: 180px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.mes-member{
+    width: 200px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.mes-logo,
+.mes-member{
+    &:hover{
+        box-shadow: 0 0 8px 0 rgba(0,0,0,.4) inset;
+        background-color: #2e313a !important;
+    }
+}
+
+.mes-crumbs__title{
+    position: relative;
+    padding-left: 1.6em;
+    font-size: 16px;
+    line-height: 39px;
+    border-bottom: 1px solid $e5;
+    box-shadow: 0 5px 5px -5px $e5;
+    background-color: $gf;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 1em;
+        width: 4px;
+        height: 18px;
+        background-color: $default-blue;
+    }
+}

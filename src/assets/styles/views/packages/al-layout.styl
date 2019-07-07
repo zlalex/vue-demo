@@ -1,0 +1,60 @@
+@import 'variable.styl';
+
+.al-layout__page{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.al-layout__view
+.al-layout__group,
+.al-layout__footer{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.al-layout__view{
+    height: 100%;
+}
+
+.al-layout__header{
+    height: 50px;
+    color: $gf;
+    background-color: $bgcolor-header;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, .6);
+}
+
+.al-layout__group{
+    top: 50px;
+    left: 0;
+    display: flex;
+    height: calc( 100% - 80px);
+}
+
+.al-layout__sliderbar{
+    width: 180px;
+    background-color: $bgcolor-silderbar;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, .6); 
+    overflow: hidden;
+}
+
+.al-sliderbar__scroll{
+    position: relative;
+    width: calc(100% + 18px);
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.al-layout__content{
+    flex: 1;
+    background-color: #f5f5f5;
+}
+
+.al-layout__footer{
+    bottom: 0;
+    left: 0;
+    color: $g6;
+    line-height: 30px;
+    background-color: $bgcolor-footer;
+}

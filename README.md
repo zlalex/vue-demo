@@ -53,7 +53,7 @@ cnpm install webpack-bundle-analyzer --save-dev
 }
 ```
 
-#＃ 文件目录
+## 文件目录
 
 > 待完善...
 

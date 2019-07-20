@@ -1,0 +1,58 @@
+@import './_variable.styl'
+*{
+  margin 0
+  padding 0
+  box-sizing border-box
+  &::after,
+  &::before{
+    box-sizing border-box
+  }
+}
+
+.ad-fl{
+  float left
+}
+
+.ad-fr{
+  float right
+}
+
+.ad-clearfix{
+  &::after{
+    content ''
+    display table
+    clear both
+  }
+  &::before{
+    content ''
+    display table
+  }
+}
+
+.ad-align-center{
+  text-align center
+}
+
+.ad-absolute{
+  position absolute
+}
+
+.ad-relative{
+  position relative
+}
+
+.ad-fixed{
+  position fixed
+}
+
+.ad-flex-box{
+  display flex
+}
+
+.ad-flex-item{
+  flex 1
+}
+
+.ad-link{
+  color $linkColor
+}

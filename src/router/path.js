@@ -1,14 +1,9 @@
-const components = {
-    index: resolve => require(['components/views/index'], resolve),
-    login: resolve => require(['components/views/login/login'], resolve),
-    defaultView: resolve => require(['components/views/index/default-view'], resolve),
-    schedule: resolve => require(['components/views/schedule/schedule'], resolve)
+const path = {
+  index: resolve => require(['../components/views/index.vue'], resolve),
+  empty: resolve => require(['../components/views/empty.vue'], resolve),
+  // DSP
+  dataCharts: resolve => require(['../components/views/data-charts/data-charts.vue'], resolve),
+  dataChartsEdit: resolve => require(['../components/views/data-charts/data-charts-edit.vue'], resolve)
 }
 
-export default {
-    name: 'path',
-    index: components.index,
-    login: components.login,
-    defaultView: components.defaultView,
-    schedule: components.schedule
-}
+export default path

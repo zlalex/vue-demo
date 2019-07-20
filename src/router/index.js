@@ -1,29 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import path from './path'
-Vue.use(Router);
 
+Vue.use(Router)
+
+// 动态路径参数 以冒号开头
 export default new Router({
-    routes: [{
-            path: '/login',
-            component: path.login
+  routes: [
+    {
+      path: '/index',
+      redirect: '/'
+    },
+    {
+      path: '/error',
+      component: path.empty
+    },
+    {
+      path: '/',
+      component: path.index,
+      children: [
+        {
+          path: '/',
+          component: path.empty
         },
         {
-            path: '/index',
-            redirect: '/'
+          path: 'dataCharts',
+          component: path.dataCharts
         },
         {
-            path: '/',
-            component: path.index,
-            children: [{
-                    path: '/',
-                    component: path.defaultView
-                },
-                {
-                    path: 'schedule',
-                    component: path.schedule
-                }
-            ]
+          path: 'dataCharts/:id',
+          component: path.dataChartsEdit
         }
-    ]
+      ]
+    }
+  ]
 })

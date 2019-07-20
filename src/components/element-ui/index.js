@@ -1,52 +1,28 @@
 import {
-    DatePicker,
-    Dialog,
-    Menu,
-    MenuItem,
-    MessageBox,
-    Option,
-    Pagination,
-    Select,
-    Submenu,
-    Table,
-    TableColumn
-} from 'element-ui';
+  Table,
+  TableColumn,
+  Message,
+  MessageBox
+} from 'element-ui'
 
-const elementUI = [
-    DatePicker,
-    Dialog,
-    Menu,
-    MenuItem,
-    MessageBox,
-    Option,
-    Pagination,
-    Select,
-    Submenu,
-    Table,
-    TableColumn
-];
+const compontents = [
+  Table,
+  TableColumn,
+  Message,
+  MessageBox
+]
 
 const install = Vue => {
-    if (install.installed) {
-        return;
-    }
+  if (install.installed) {
+    return
+  }
 
-    elementUI.map(element => Vue.component(element.name, element));
+  compontents.map(element => Vue.component(element.name, element))
 }
 
-(typeof window !== 'undefined' && window.Vue) && install(window.Vue);
+(typeof window !== 'undefined' && window.Vue) && install(window.Vue)
 
 export default {
-    DatePicker,
-    Dialog,
-    Menu,
-    MenuItem,
-    MessageBox,
-    Option,
-    Pagination,
-    Select,
-    Submenu,
-    Table,
-    TableColumn,
-    install
+  install,
+  compontents
 }

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import elementUI from './components/element-ui'
 import './assets/css/index.styl'
@@ -13,6 +14,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#root',
+  store,
   router,
   components: { App },
   template: '<App/>'

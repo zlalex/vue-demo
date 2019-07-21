@@ -6,6 +6,9 @@
 </template>
 
 <script>
+import {
+  mapActions
+} from 'vuex'
 import adHeader from './components/layout/ad-header'
 import adContent from './components/layout/ad-content'
 
@@ -33,26 +36,34 @@ export default {
     }
   },
   mounted () {
-    const ADX_USER = sessionStorage.getItem('AD_USER')
-
-    try {
-      const localToken = JSON.parse(ADX_USER)
-
-      if (localToken && localToken.time) {
-        const gap = Date.now() - localToken.time
-
-        if (gap && gap > 0 && (gap / DATE_TIME > 30)) {
-          this.getUserToken()
-          return
-        }
-
-        this.login = !this.login
-      } else {
-        this.getUserToken()
-      }
-    } catch (e) {}
+    this.init()
   },
   methods: {
+    ...mapActions([
+      'loginAction'
+    ]),
+
+    init () {
+      const ADX_USER = sessionStorage.getItem('AD_USER')
+      try {
+        const localToken = JSON.parse(ADX_USER)
+        console.log('-- app init --')
+        this.loginAction()
+        if (localToken && localToken.time) {
+          const gap = Date.now() - localToken.time
+
+          if (gap && gap > 0 && (gap / DATE_TIME > 30)) {
+            this.getUserToken()
+            return
+          }
+
+          this.login = !this.login
+        } else {
+          this.getUserToken()
+        }
+      } catch (e) {}
+    },
+
     async getUserToken () {
       if (this.login) {
         return

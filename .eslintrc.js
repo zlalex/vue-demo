@@ -19,6 +19,9 @@ module.exports = {
   plugins: [
     'vue'
   ],
+  globals: {
+    'VUE_APP_ENV': true
+  },
   // add your custom rules here
   rules: {
     'no-extend-native': 'off',

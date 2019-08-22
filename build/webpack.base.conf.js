@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const webpack = require('webpack')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -38,6 +39,11 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      VUE_APP_ENV: JSON.stringify(process.env.VUE_APP_ENV)
+    }),
+  ],
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),

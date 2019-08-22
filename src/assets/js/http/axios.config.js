@@ -43,12 +43,15 @@ const cancelCallback = config => {
 
 // token添加 cancelToken添加
 const interceptorsRequest = config => {
-  const cancelName = getRequestName(config)
+  // json web token
   const ADX_TOKEN = sessionStorage.getItem('ADX_TOKEN')
 
   if (ADX_TOKEN) {
     config.headers.common['Authorization'] = `Bearer ${ADX_TOKEN}`
   }
+
+  // cancel pedding request
+  const cancelName = getRequestName(config)
 
   cancelName && CANCEL_OBJ[cancelName] && CANCEL_OBJ[cancelName]()
   config.cancelToken = new CancelToken(function executor (cb) {
@@ -65,9 +68,8 @@ const interceptorsRequest = config => {
 // 创建axios instance
 const instance = axios.create(config)
 
-// 请求拦截
+// 请求拦截 cancelToken移除
 instance.interceptors.request.use(interceptorsRequest, error => {
-  // cancelToken移除
   error.data = {
     code: -1,
     msg: '请求错误！'

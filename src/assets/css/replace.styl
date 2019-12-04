@@ -1,0 +1,117 @@
+@import './_variable.styl';
+
+.el-replace{
+  font-size: 14px;
+  // 菜单
+  .el-menu{
+    border-right: 0 none;
+    .icon{
+      margin-right: 20px;
+    }
+  }
+  .el-menu--inline{
+    .el-menu-item{
+      text-indent: 15px;
+      color: #666 !important;
+      &.is-active{
+        color: $blue !important;
+      }
+    }
+  }
+  // 通用表格
+  th{
+    color $fontColor6
+    font-weight 400
+  }
+  tr:hover{
+    td{
+      background-color: #f5f5f5;
+    }
+  }
+  td{
+    padding: 8px 0;
+    color $fontColor3
+    background-color: #fafafa;
+  }
+  .el-table-column--selection .cell{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  // 斑马线
+  .el-table--striped .el-table__body tr.el-table__row--striped td{
+    background-color: #fff;
+  }
+  // 表单
+  .el-form-item{
+    margin-right: 0;
+    margin-bottom: 20px;
+    .el-input{
+      .el-input__inner{
+        padding-left: 10px;
+      }
+    }
+  }
+  .el-form-item__label{
+    padding-right 10px
+    line-height 36px
+  }
+  .el-input{
+    .el-input__inner{
+      height: 36px;
+      line-height: 36px;
+    }
+  }
+  // 分页
+  .el-pagination {
+    padding: 10px;
+    &.is-background .el-pager li{
+      background: #fff;
+    }
+    li{
+      font-weight 400
+    }
+    .el-input__inner{
+      height: 28px;
+      line-height: 28px;
+    }
+  }
+  // 面包屑
+  .el-breadcrumb__inner a,
+  .el-breadcrumb__inner.is-link{
+    font-weight 400
+  }
+  // 弹窗
+  .el-dialog{
+    border-radius: 4px;
+  }
+  .el-dialog__header{
+    padding: 10px 20px;
+    border-bottom: $grayBgColor 1px solid;
+  }
+  .el-dialog__title{
+    font-size: 14px;
+  }
+  .el-dialog__headerbtn{
+    top: 10px;
+    right: 10px;
+  }
+  .el-dialog__body{
+    padding: 0 20px;
+  }
+
+  .el-dialog__footer{
+    padding 12px 20px
+    border-top: $grayBgColor 1px solid;
+  }
+  // placeholder
+  .el-input__inner::-webkit-input-placeholder,
+  .el-input__inner:-ms-input-placeholder,
+  .el-input__inner::-ms-input-placeholder,
+  .el-input__inner::placeholder {
+      color: #999
+  }
+  .el-cascader__dropdown{
+    max-height: 400px;
+    overflow: auto;
+  }
+}

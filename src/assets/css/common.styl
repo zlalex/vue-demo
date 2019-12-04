@@ -1,4 +1,4 @@
-@import './_variable.styl'
+@import './_variable.styl';
 *{
   margin 0
   padding 0
@@ -9,15 +9,41 @@
   }
 }
 
-.ad-fl{
+::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #f6f6f6;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 20px;
+  border-radius: 5px;
+  background: #e1e1e1;
+}
+
+h1,h2,h3,h4,h5{
+  font-size 22px
+  line-height 40px
+}
+
+li{
+  list-style: none;
+}
+
+textarea{
+  font-family '微软雅黑'
+}
+
+.al-fl{
   float left
 }
 
-.ad-fr{
+.al-fr{
   float right
 }
 
-.ad-clearfix{
+.al-clearfix{
   &::after{
     content ''
     display table
@@ -29,30 +55,255 @@
   }
 }
 
-.ad-align-center{
+.al-align-center{
   text-align center
 }
 
-.ad-absolute{
+.al-align-right{
+  text-align right
+}
+
+.al-absolute{
   position absolute
 }
 
-.ad-relative{
+.al-relative,
+.al-clearfix{
   position relative
 }
 
-.ad-fixed{
+.al-fixed{
   position fixed
 }
 
-.ad-flex-box{
+.al-flex-box{
   display flex
+  align-items center
 }
 
-.ad-flex-item{
+.al-flex-item{
   flex 1
 }
 
-.ad-link{
+.al-link{
+  padding: 0 4px;
   color $linkColor
+}
+
+.al-link-danger{
+  padding: 0 4px;
+  color $dangerColor
+}
+
+.al-button-wrap{
+  display flex
+  align-items flex-end
+}
+
+.al-cursor-pointer,
+.al-link,
+.al-link-danger,
+.al-button{
+  cursor pointer
+}
+
+.al-ellipsis{
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+}
+
+.al-img-wrap{
+  width 100px
+  text-align center
+  &::after {
+    content ''
+    verticad-align middle
+  }
+  img {
+    width 100%
+    verticad-align middle
+  }
+}
+
+.al-max-tdheight{
+  max-height 46px
+  overflow hidden
+}
+
+.al-button{
+  display inline-block
+  width 100px
+  height 36px
+  font-size 14px
+  line-height 34px
+  color $fontColor3
+  text-align center
+  border-radius 18px
+  border 1px solid transparent
+  background-color transparent
+  user-select none
+  transition: all .3s
+  &:hover{
+    transition: all .3s
+  }
+
+  &.al-btn-default{
+    color #ffffff
+    background-color: $linkColor
+    border-color: $linkColor;
+    &:hover{
+      background-color: $hoverBlue
+      border-color: $hoverBlue;
+    }
+  }
+
+  &.al-btn-red{
+    color #ffffff
+    background-color: $red
+    border-color: $red
+    &:hover{
+      background-color: $hoverRed
+      border-color: $hoverRed
+    }
+  }
+
+  // 线框按钮
+  &.al-btn-outline{
+    color $blueOutline
+    border-color $blueOutline
+    background-color transparent
+    &:hover{
+      border-color $hoverBlueOutline
+      background-color $hoverBlueOutlineBg
+    }
+
+    &.al-btn-red{
+      color: $redOutline
+      border-color $redOutline
+      &:hover{
+        border-color $hoverRedOutlineBg
+        background-color $hoverRedOutline
+      }
+    }
+
+    &.al-btn-cancel{
+      color: #666
+      border-color $gray
+      &:hover{
+        border-color $hoverGray
+        background-color $hoverGrayBg
+      }
+    }
+  }
+
+  &.al-btn-disabled{
+    opacity .6
+    cursor not-allowed !important
+  }
+}
+
+// 自定义组件样式
+.al-radio--button{
+  .al-button--radio{
+    padding:0 20px;
+    margin-left: -1px;
+    min-width: 100px;
+    height: 36px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    background-color: #ffffff;
+    border: solid 1px #e1e3e6;
+    cursor: pointer;
+    &.active{
+      position: relative;
+      z-index: 1;
+      color: #2693ff;
+      background-color: #f3f9ff;
+      border: solid 1px #2693ff;
+    }
+    &:first-child{
+      border-radius: 4px 0px 0px 4px;
+    }
+    &:last-child{
+      border-radius: 0px 4px 4px 0px;
+    }
+  }
+}
+
+.al-transfer{
+  height: 356px;
+  .al-transfer--item{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+  .al-transfer--center{
+    padding: 0 20px;;
+    justify-content: center;
+    .el-button{
+      margin-left: 0;
+    }
+  }
+  .al-transfer--wrap{
+    flex: 1;
+    overflow: auto;
+    padding-left: 20px;
+  }
+  .al-transfer--left{
+    width: 366px;
+    overflow: auto;
+  }
+  .al-transfer--right{
+    width: 290px;
+  }
+  .al-transfer--left,
+  .al-transfer--right{
+    border: 1px solid #e1e3e5;
+    border-radius: 4px;
+    background: #fff;
+  }
+  .al-transfer--title,
+  .al-transfer--footer{
+    padding: 0 20px;
+  }
+  .al-transfer--title{
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #e1e3e5;
+    background: #f6f6f6;
+  }
+  .al-transfer--footer{
+    padding: 6px 20px;
+    border-top: 1px solid #e1e3e5;
+  }
+  .al-transfer--search{
+    padding: 20px 20px 0 20px;
+    .el-select{
+      input{
+        border-radius: 4px 0 0 4px;
+        &:focus{
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+    >.el-input{
+      margin-left: -1px;
+      input{
+        border-radius: 0;
+      }
+    }
+    .el-button{
+      margin-left: -1px;
+      padding: 11px 15px;
+      border-radius: 0 4px 4px 0;
+      background: #f6f6f6;
+      &:active{
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
 }

@@ -1,25 +1,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import store from './store'
-
-import urlMap from './env.config/url.map'
+import 'element-ui/lib/theme-chalk/index.css'
 import elementUI from './components/element-ui'
-
+import packages from './components/packages'
+import './assets/iconfont/iconfont.css'
 import './assets/css/index.styl'
 import './assets/js/utils/register.js'
 
-console.log(urlMap)
-
 Vue.use(elementUI)
+Vue.use(packages)
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+// vue-cli3
 new Vue({
-  el: '#root',
-  store,
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount("#app")

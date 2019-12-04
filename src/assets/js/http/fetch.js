@@ -5,9 +5,10 @@ const handlerRequestError = (error) => {
     return error.data
   }
 
+  // 当没有 error.data 时，说明触发了 cancelToken 逻辑
   return {
     code: -2,
-    msg: '请求中止！'
+    msg: '频繁操作！'
   }
 }
 

@@ -1,88 +1,32 @@
 <template>
-  <div id="root">
-    <ad-header />
-    <ad-Content v-if="login"/>
+  <div id="app">
+    <al-header />
+    <al-content v-if="login" />
   </div>
 </template>
 
 <script>
-import {
-  mapActions
-} from 'vuex'
-import adHeader from './components/layout/ad-header'
-import adContent from './components/layout/ad-content'
-
-import {
-  DATE_TIME
-} from '@/assets/js/http/global.config'
-
-import {
-  postAuthorizations
-} from '@/assets/api'
+import alHeader from './components/layout/al-header'
+import alContent from './components/layout/al-content'
 
 export default {
   name: 'App',
+
   components: {
-    adHeader,
-    adContent
+    alHeader,
+    alContent
   },
+
   data () {
     return {
-      login: true,
-      loginInfo: {
-        uid: '',
-        username: ''
-      }
+      login: true
     }
   },
+
   mounted () {
-    this.init()
   },
+
   methods: {
-    ...mapActions([
-      'loginAction'
-    ]),
-
-    init () {
-      const ADX_USER = sessionStorage.getItem('AD_USER')
-      try {
-        const localToken = JSON.parse(ADX_USER)
-        console.log('-- app init --')
-        this.loginAction()
-        if (localToken && localToken.time) {
-          const gap = Date.now() - localToken.time
-
-          if (gap && gap > 0 && (gap / DATE_TIME > 30)) {
-            this.getUserToken()
-            return
-          }
-
-          this.login = !this.login
-        } else {
-          this.getUserToken()
-        }
-      } catch (e) {}
-    },
-
-    async getUserToken () {
-      if (this.login) {
-        return
-      }
-
-      const res = await postAuthorizations(this.loginInfo)
-      if (res && res.code === 0 && res.data) {
-        const token = res.data.access_token
-        const data = JSON.stringify({
-          user: res.data,
-          time: Date.now()
-        })
-
-        sessionStorage.setItem('AD_TOKEN', token)
-        sessionStorage.setItem('AD_USER', data)
-
-        this.login = !this.login
-      }
-    }
   }
 }
 </script>

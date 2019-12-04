@@ -1,7 +1,7 @@
-const apiPrefix = 'api/v1/'
+const apiPrefix = ''
 
 const globalUrl = {
-  authorizations: `${apiPrefix}authorizations`
+  testRequest: `${apiPrefix}testRequest`,
 }
 
 export default globalUrl

@@ -2,7 +2,7 @@
   "name": "information",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "zhouliang <zhouliang@2345.com>",
+  "author": "zhouliang",
   "private": true,
   "scripts": {
     "dev": "cross-env VUE_APP_ENV=local webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

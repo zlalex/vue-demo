@@ -1,4 +1,4 @@
-# 基于 Vue-cli3 构建的后台管理系统基础模板
+# vue-project
 
 ## Project setup
 ```
@@ -13,11 +13,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files

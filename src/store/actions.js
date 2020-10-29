@@ -1,7 +1,2 @@
-const loginAction = () => {
-  console.log(1)
-}
-
-export {
-  loginAction
-}
+export const loginAction = () => { }
+export const logoutAction = () => { }

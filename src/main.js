@@ -1,20 +1,14 @@
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router'
-import 'element-ui/lib/theme-chalk/index.css'
-import elementUI from './components/element-ui'
-import packages from './components/packages'
-import './assets/iconfont/iconfont.css'
-import './assets/css/index.styl'
-import './assets/js/utils/register.js'
-
-Vue.use(elementUI)
-Vue.use(packages)
+import store from './store'
 
 Vue.config.productionTip = false
 
-// vue-cli3
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount("#app")
+window.projectInit = function () {
+  new Vue({
+    router,
+    store,
+    render: h => h(App),
+  }).$mount('#app')
+}

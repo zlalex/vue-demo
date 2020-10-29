@@ -1,32 +1,14 @@
 <template>
   <div id="app">
-    <al-header />
-    <al-content v-if="login" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import alHeader from './components/layout/al-header'
-import alContent from './components/layout/al-content'
-
 export default {
-  name: 'App',
-
-  components: {
-    alHeader,
-    alContent
+  name: "App",
+  mounted() {
+    console.log('project init')
   },
-
-  data () {
-    return {
-      login: true
-    }
-  },
-
-  mounted () {
-  },
-
-  methods: {
-  }
-}
+};
 </script>

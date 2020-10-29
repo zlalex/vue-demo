@@ -1,21 +1,20 @@
-const config = require('./application.config')
+const env = process.env.VUE_APP_ENV
+const isProd = env === 'prod'
+const isUat = env === 'uat'
 
-const proxyTable = {
-  '/': {
-    target: config.proxyPath
-  }
-}
-
-// vue.config.js
 module.exports = {
-  publicPath: '/',
+  publicPath: isProd || isUat ? '' : '/',
   outputDir: 'dist',
-  assetsDir: './static',
+  assetsDir: './',
+  runtimeCompiler: false,
   productionSourceMap: false,
   css: {
-    sourceMap: false
-  },
-  devServer: {
-    proxy: proxyTable
+    sourceMap: false,
+    loaderOptions: {
+      sass: {
+        // 全局引入sass 新 sass-loader { prependData:'' } 旧版 { data:'' }
+        prependData: `@import "@/styles/_variable.scss";`
+      }
+    }
   }
 }
